@@ -1,0 +1,31 @@
+services:
+  frontend:
+    build:
+      context: ./frontend
+    ports:
+      - "3000"
+
+  backend:
+    build:
+      context: ./backend
+    env_file:
+      - ./backend/.env  
+    ports:
+      - "4000"
+
+  caddy:
+    image: caddy:2
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+      - caddy_data:/data
+      - caddy_config:/config
+    ports:
+      - "80:80"
+      - "443:443"
+    depends_on:
+      - frontend
+      - backend
+
+volumes:         
+  caddy_data:
+  caddy_config:
