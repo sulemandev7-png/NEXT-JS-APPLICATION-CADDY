@@ -46,6 +46,8 @@ jobs:
           username: ${{ secrets.EC2_USERNAME }}
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
+            docker builder prune -af
+            docker image prune -af
             cd ~/NEXT-JS-APPLICATION-CADDY
             aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin ${{ secrets.ECR_FRONTEND_URI }}
             docker compose pull

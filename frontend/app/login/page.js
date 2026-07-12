@@ -59,6 +59,7 @@ export default function LoginPage() {
               <p className="text-gray-500 mt-2">
                 Sign in to access your dashboard
                 And enjoy your life    
+                Go enjoy it man
               </p>
             </div>
 
