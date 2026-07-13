@@ -60,6 +60,7 @@ export default function LoginPage() {
                 Sign in to access your dashboard
                 And enjoy your life    
                 Go enjoy it man
+                Hello world
               </p>
             </div>
 
